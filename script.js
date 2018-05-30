@@ -25,11 +25,11 @@ function playRound(playerSelection, computer = computerPlay(randomNumber())) {
     throw new Error("You must chose 'Rock', 'Paper', or 'Scissors'");
 }
 
-function game() {
+function game(playerChoice) {
     const score = [0, 0];
     let roundResult, round = 1;
     while (round <= 5) {
-        roundResult = playRound(prompt("Chose 'Rock', 'Paper', or 'Scissors'"));
+        roundResult = playRound(playerChoice());
         console.log(roundResult);
         if (roundResult.includes("tie")) {
             continue;
@@ -45,4 +45,6 @@ function game() {
     }
 }
 
-game();
+const promptInput = () => prompt("Chose 'Rock', 'Paper', or 'Scissors'");
+
+game(promptInput);
