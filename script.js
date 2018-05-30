@@ -7,8 +7,6 @@ function computerPlay(randomNumber) {
     return choices[randomNumber];
 }
 
-console.log(computerPlay(randomNumber()));
-
 function playRound(playerSelection, computer = computerPlay(randomNumber())) {
     const player = String(playerSelection).toLowerCase();
     if (player === "rock" || player === "paper" || player === "scissors") {
@@ -27,4 +25,24 @@ function playRound(playerSelection, computer = computerPlay(randomNumber())) {
     throw new Error("You must chose 'Rock', 'Paper', or 'Scissors'");
 }
 
-console.log(playRound(true));
+function game() {
+    const score = [0, 0];
+    let roundResult, round = 1;
+    while (round <= 5) {
+        roundResult = playRound(prompt("Chose 'Rock', 'Paper', or 'Scissors'"));
+        console.log(roundResult);
+        if (roundResult.includes("tie")) {
+            continue;
+        }
+        score[roundResult.includes("Win") ? 0 : 1]++;
+        round++;
+    }
+    if (score[0] > score[1]) {
+        console.log(`You win! ${score[0]} to ${score[1]}!`);
+    }
+    else {
+        console.log(`You lose! ${score[1]} to ${score[0]}!`);
+    }
+}
+
+game();
