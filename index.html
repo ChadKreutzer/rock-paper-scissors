@@ -7,7 +7,25 @@
 </head>
 
 <body>
-    <script type="text/javascript" src="script.js"></script>
+    <div id="choices">
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissors</button>
+    </div>
+    <div id="results"></div>
+    
+    <!--<script type="text/javascript" src="script.js"></script>-->
+    <script>
+        const choices = document.getElementById("choices");
+        const results = document.getElementById("results");
+        let player;
+        
+        
+        [...choices.children].forEach(choice => choice.addEventListener("click", function(e){
+            player = this.innerText;
+        }));
+        console.log(player);
+    </script>
 </body>
 
 </html>
