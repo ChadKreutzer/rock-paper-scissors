@@ -16,11 +16,10 @@ reset.addEventListener("click", startNewGame);
 // Functions
 function play() {
   const roundResult = playRound(this.innerHTML);
+  
   display.innerHTML = roundResult;
   incrementScore(roundResult);
-  if (endGameCheck(scores)) {
-    toggleHiddenButtons();
-  }
+  if (endGameCheck(scores)) toggleHiddenButtons();
 }
 
 function startNewGame() {
@@ -30,7 +29,7 @@ function startNewGame() {
   toggleHiddenButtons();
 }
 
-function toggleHiddenButtons(){
+function toggleHiddenButtons() {
   document.getElementById("choices").classList.toggle("hidden");
   document.getElementById("reset").classList.toggle("hidden");
 }
@@ -39,28 +38,25 @@ const randomNumber = () => Math.floor(Math.random() * 3);
 
 function computerPlay(randomNumber) {
   const computerChoices = ['rock', 'paper', 'scissors'];
+  
   return computerChoices[randomNumber];
 }
 
 function playRound(playerSelection, computer = computerPlay(randomNumber())) {
   const player = String(playerSelection).toLowerCase();
+  
   if (player === 'rock' || player === 'paper' || player === 'scissors') {
-    if (player === computer) {
-      return "It's a tie, try again!";
-    }
+    if (player === computer) return "It's a tie, try again!";
     switch (player) {
       case 'rock':
         return computer === 'scissors' ?
-          'You Win! Rock beats Scissors!' :
-          'You Lose! Paper beats Rock!';
+          'You Win! Rock beats Scissors!' : 'You Lose! Paper beats Rock!';
       case 'paper':
         return computer === 'rock' ?
-          'You Win! Paper beats Rock!' :
-          'You Lose! Scissors beats Paper!';
+          'You Win! Paper beats Rock!' : 'You Lose! Scissors beats Paper!';
       default:
         return computer === 'paper' ?
-          'You Win! Scissors beats Paper!' :
-          'You Lose! Rock beats Scissors!';
+          'You Win! Scissors beats Paper!' : 'You Lose! Rock beats Scissors!';
     }
   }
   throw new Error("You must chose 'Rock', 'Paper', or 'Scissors'");
@@ -77,10 +73,10 @@ function endGameCheck(scores, endDisplay = display) {
   const player = parseInt(scores.player.innerText);
   const computer = parseInt(scores.computer.innerText);
   let result = false;
+  
   if (player + computer === 5) {
     endDisplay.innerHTML = (player > computer) ?
-      `You win ${player} to ${computer}!` :
-      `You lose ${computer} to ${player}!`;
+      `You win ${player} to ${computer}!` : `You lose ${computer} to ${player}!`;
     result = true;
   }
   return result;
