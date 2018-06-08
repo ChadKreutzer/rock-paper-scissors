@@ -1,5 +1,3 @@
-// Rock Paper Scissors Game
-
 // Globals
 const choices = document.getElementsByClassName("play-game");
 const reset = document.getElementById("new-game");
@@ -75,7 +73,7 @@ function endGameCheck(scores, endDisplay = display) {
   let result = false;
 
   if (player + computer === 5) {
-    endDisplay.innerHTML = (player > computer) ?
+    endDisplay.innerHTML = player > computer ?
       `You win ${player} to ${computer}!` : `You lose ${computer} to ${player}!`;
     result = true;
   }
