@@ -11,19 +11,9 @@ const scores = {
 
 // Event Listeners
 [...choices].forEach(choice => choice.addEventListener("click", play));
-reset.addEventListener("click", function() {
-  display.innerHTML = "Let's play a game!";
-  scores.player.innerText = 0;
-  scores.computer.innerText = 0;
-  toggleHiddenButtons();
-})
+reset.addEventListener("click", startNewGame);
 
 // Functions
-function toggleHiddenButtons(){
-  document.getElementById("choices").classList.toggle("hidden");
-  document.getElementById("reset").classList.toggle("hidden");
-}
-
 function play() {
   const roundResult = playRound(this.innerHTML);
   display.innerHTML = roundResult;
@@ -31,6 +21,18 @@ function play() {
   if (endGameCheck(scores)) {
     toggleHiddenButtons();
   }
+}
+
+function startNewGame() {
+  display.innerHTML = "Let's play a game!";
+  scores.player.innerText = 0;
+  scores.computer.innerText = 0;
+  toggleHiddenButtons();
+}
+
+function toggleHiddenButtons(){
+  document.getElementById("choices").classList.toggle("hidden");
+  document.getElementById("reset").classList.toggle("hidden");
 }
 
 const randomNumber = () => Math.floor(Math.random() * 3);
