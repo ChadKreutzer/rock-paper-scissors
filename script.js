@@ -10,15 +10,17 @@ const scores = {
 };
 
 // Event Listeners
-[...choices].forEach(choice => choice.addEventListener("click", () => playRound(this)));
+[...choices].forEach(choice => choice.addEventListener("click", play));
 
 // Functions
-function playRound(button) {
-  const roundResult = playRound(button.innerHTML);
+function play() {
+  const roundResult = playRound(this.innerHTML);
   display.innerHTML = roundResult;
   incrementScore(roundResult);
   if (endGameCheck(scores)) {
-    [...choices].forEach(choice => choice.removeEventListener("click", () => playRound(this))); 
+    [...choices].forEach(function(choice) {
+      choice.removeEventListener("click", play);
+    });
   }
 }
 
@@ -65,7 +67,9 @@ function endGameCheck(scores, endDisplay = display) {
   const computer = parseInt(scores.computer.innerText);
   let result = false;
   if (player + computer === 5) {
-    endDisplay.innerHTML = (player > computer) ? `You win! ${player} to ${computer}!` : `You lose! ${computer} to ${player}!`;
+    endDisplay.innerHTML = (player > computer) ?
+      `You win ${player} to ${computer}!` :
+      `You lose ${computer} to ${player}!`;
     result = true;
   }
   return result;
