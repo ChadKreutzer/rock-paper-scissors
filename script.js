@@ -3,10 +3,9 @@
 // Globals
 const choices = document.getElementsByTagName("button");
 const display = document.getElementById("display");
-const scoreboard = document.getElementById("scoreboard");
 const scores = {
-  player: scoreboard.childNodes[3],
-  computer: scoreboard.childNodes[7]
+  player: document.getElementById("player-score"),
+  computer: document.getElementById("computer-score")
 };
 
 // Event Listeners
@@ -27,8 +26,8 @@ function play() {
 const randomNumber = () => Math.floor(Math.random() * 3);
 
 function computerPlay(randomNumber) {
-  const choices = ['rock', 'paper', 'scissors'];
-  return choices[randomNumber];
+  const computerChoices = ['rock', 'paper', 'scissors'];
+  return computerChoices[randomNumber];
 }
 
 function playRound(playerSelection, computer = computerPlay(randomNumber())) {
