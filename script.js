@@ -10,15 +10,15 @@ const scores = {
 };
 
 // Event Listeners
-[...choices].forEach(choice => choice.addEventListener("click", playRound));
+[...choices].forEach(choice => choice.addEventListener("click", () => playRound(this)));
 
 // Functions
-function playRound() {
-  const roundResult = playRound(this.innerHTML);
+function playRound(button) {
+  const roundResult = playRound(button.innerHTML);
   display.innerHTML = roundResult;
   incrementScore(roundResult);
   if (endGameCheck(scores)) {
-    [...choices].forEach(choice => choice.removeEventListener("click", playRound)); 
+    [...choices].forEach(choice => choice.removeEventListener("click", () => playRound(this))); 
   }
 }
 
@@ -70,22 +70,3 @@ function endGameCheck(scores, endDisplay = display) {
   }
   return result;
 }
-// function game(playerChoice) {
-//   const score = [0, 0];
-//   let roundResult,
-//     round = 1;
-//   while (round <= 5) {
-//     roundResult = playRound(playerChoice());
-//     console.log(roundResult);
-//     if (roundResult.includes('tie')) {
-//       continue;
-//     }
-//     score[roundResult.includes('Win') ? 0 : 1]++;
-//     round++;
-//   }
-//   if (score[0] > score[1]) {
-//     console.log(`You win! ${score[0]} to ${score[1]}!`);
-//   } else {
-//     console.log(`You lose! ${score[1]} to ${score[0]}!`);
-//   }
-// }
