@@ -16,7 +16,7 @@ reset.addEventListener("click", startNewGame);
 // Functions
 function play() {
   const roundResult = playRound(this.innerHTML);
-  
+
   display.innerHTML = roundResult;
   incrementScore(roundResult);
   if (endGameCheck(scores)) toggleHiddenButtons();
@@ -38,13 +38,13 @@ const randomNumber = () => Math.floor(Math.random() * 3);
 
 function computerPlay(randomNumber) {
   const computerChoices = ['rock', 'paper', 'scissors'];
-  
+
   return computerChoices[randomNumber];
 }
 
 function playRound(playerSelection, computer = computerPlay(randomNumber())) {
   const player = String(playerSelection).toLowerCase();
-  
+
   if (player === 'rock' || player === 'paper' || player === 'scissors') {
     if (player === computer) return "It's a tie, try again!";
     switch (player) {
@@ -73,7 +73,7 @@ function endGameCheck(scores, endDisplay = display) {
   const player = parseInt(scores.player.innerText);
   const computer = parseInt(scores.computer.innerText);
   let result = false;
-  
+
   if (player + computer === 5) {
     endDisplay.innerHTML = (player > computer) ?
       `You win ${player} to ${computer}!` : `You lose ${computer} to ${player}!`;
