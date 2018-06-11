@@ -2,7 +2,7 @@
 
 // Globals
 const choices = Array.from(document.getElementsByClassName("play-game"));
-const reset = document.getElementById("new-game");
+const reset = document.getElementById("reset");
 const display = document.getElementById("display");
 const scores = {
   player: document.getElementById("player-score"),
@@ -31,7 +31,7 @@ function startNewGame() {
 
 function toggleHiddenButtons() {
   choices.forEach(choice => choice.classList.toggle("hidden"));
-  document.getElementById("reset").classList.toggle("hidden");
+  reset.classList.toggle("hidden");
 }
 
 const randomNumber = () => Math.floor(Math.random() * 3);
