@@ -15,7 +15,8 @@ reset.addEventListener("click", startNewGame);
 
 // Functions
 function play() {
-  const roundResult = playRound(this.innerHTML);
+  console.log(this.id)
+  const roundResult = playRound(this.id);
 
   display.innerHTML = roundResult;
   incrementScore(roundResult);

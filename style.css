@@ -7,44 +7,47 @@
 #wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
-  justify-items: stretch;
+  justify-items: center;
 }
 
 h1 {
   grid-column: 2/5;
   grid-row: 1/2;
-  justify-self: center;
+  font-size: 3em;
 }
 
 #display {
   grid-column: 2/5;
   grid-row: 2/3;
-  justify-self: center;
+}
+
+.play-game {
+  cursor: pointer;
+  grid-row: 3/4;
 }
 
 #rock {
   grid-column: 2/3;
-  grid-row: 3/4;
 }
 
 #paper {
   grid-column: 3/4;
-  grid-row: 3/4;
 }
 
 #scissors {
   grid-column: 4/5;
-  grid-row: 3/4;
 }
 
 #reset {
   grid-column: 2/5;
   grid-row: 3/4;
+  justify-self: stretch;
 }
 
 #scoreboard {
   grid-column: 2/5;
   grid-row: 4/5;
+  justify-self: stretch;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
   justify-items: center;
@@ -57,7 +60,6 @@ h1 {
 
 #player-score {
   grid-column: 2/3;
-  grid-row: 2/3;
 }
 
 #computer {
@@ -67,5 +69,10 @@ h1 {
 
 #computer-score {
   grid-column: 4/5;
+}
+
+.scores {
   grid-row: 2/3;
+  align-self: start;
+  font-size: 3em;
 }

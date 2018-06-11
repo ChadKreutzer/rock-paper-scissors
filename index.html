@@ -4,6 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -11,15 +12,15 @@
   <div id="wrapper">
     <h1>Rock Paper Scissors</h1>
     <h2 id="display">Let's play a game!</h2>
-    <button id="rock" class="play-game">Rock</button>
-    <button id="paper" class="play-game">Paper</button>
-    <button id="scissors" class="play-game">Scissors</button>
+    <div id="rock" class="play-game fas fa-hand-rock fa-5x"></div>
+    <div id="paper" class="play-game fas fa-hand-paper fa-5x"></div>
+    <div id="scissors" class="play-game fas fa-hand-scissors fa-5x"></div>
     <button id="reset" class="hidden">Play Again</button>
     <div id="scoreboard">
       <h2 id="player">Player</h2>
-      <h3 id="player-score">0</h3>
+      <div id="player-score" class="scores">0</div>
       <h2 id="computer">Computer</h2>
-      <h3 id="computer-score">0</h3>
+      <div id="computer-score" class="scores">0</div>
     </div>
   </div>
 
