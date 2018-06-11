@@ -1,5 +1,7 @@
+// Rock Paper Scissors Game
+
 // Globals
-const choices = document.getElementsByClassName("play-game");
+const choices = Array.from(document.getElementsByClassName("play-game"));
 const reset = document.getElementById("new-game");
 const display = document.getElementById("display");
 const scores = {
@@ -8,7 +10,7 @@ const scores = {
 };
 
 // Event Listeners
-[...choices].forEach(choice => choice.addEventListener("click", play));
+choices.forEach(choice => choice.addEventListener("click", play));
 reset.addEventListener("click", startNewGame);
 
 // Functions
@@ -28,7 +30,7 @@ function startNewGame() {
 }
 
 function toggleHiddenButtons() {
-  document.getElementById("choices").classList.toggle("hidden");
+  choices.forEach(choice => choice.classList.toggle("hidden"));
   document.getElementById("reset").classList.toggle("hidden");
 }
 
