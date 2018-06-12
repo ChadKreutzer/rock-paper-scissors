@@ -75,7 +75,7 @@ function endGameCheck(scores, endDisplay = display) {
   const computer = parseInt(scores.computer.innerText);
   let result = false;
 
-  if (player + computer === 5) {
+  if (player === 3 || computer === 3) {
     endDisplay.innerHTML = player > computer ?
       `You win ${player} to ${computer}!` : `You lose ${computer} to ${player}!`;
     result = true;
